@@ -17,8 +17,6 @@ public class DiskAnalyzer {
         File[] disks;
         disks = File.listRoots();
         for(File disk:disks){
-            //LocalDate todaysDate = LocalDate.now();
-
             Disque disque = new Disque(
                     disk,
                     ZonedDateTime.now(ZoneId.of("Europe/Paris")),
@@ -33,7 +31,6 @@ public class DiskAnalyzer {
     public void afficherDisque() throws SQLException {
         for(Disque d : disques) {
             System.out.println(d);
-
             try{
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sisncom?serverTimeZone=UTC","root", "21042001");
 
@@ -50,8 +47,5 @@ public class DiskAnalyzer {
                 e.printStackTrace();
             }
         }
-
-
-
     }
 }
